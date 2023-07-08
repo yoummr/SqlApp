@@ -2,6 +2,11 @@ using SqlApp.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
+var connectionString = "Endpoint=https://azureappconfig1000.azconfig.io;Id=TwAQ;Secret=JwcpmL9gxSQoZDZny1p8h44AAos4sziUYIXCADZlca0=";
+builder.Host.ConfigureAppConfiguration(builder =>
+{
+    builder.AddAzureAppConfiguration(connectionString);
+});
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IProductService, ProductService>();
